@@ -1,0 +1,11 @@
+@import "../styleutils/variables.scss";
+
+body {
+  background: $main-dark-color;
+  color: $main-light-color;
+}
+
+[data-theme="light"] body {
+  background: $main-light-color;
+  color: $main-dark-color;
+}
