@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.scss";
 import { ThemeSwitcherProvider } from "@/providers/ThemeProvider";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher/ThemeSwitcher";
+import { Header } from "@/components/Header/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeSwitcherProvider>
+          <Header />
           <ThemeSwitcher />
           {children}
         </ThemeSwitcherProvider>
