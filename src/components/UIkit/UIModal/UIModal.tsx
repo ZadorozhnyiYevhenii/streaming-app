@@ -1,20 +1,20 @@
-import { Modal } from "antd";
 import React from "react";
+import { Modal } from "antd";
+import './UIModal.scss';
 
 export const UIModal = ({
   children,
   onOk,
   onCancel,
   open,
-  type = "primary",
+  width = '50%'
 }: {
   children: React.ReactNode;
   onOk: () => void;
   onCancel: () => void;
   open: boolean;
-  type?: "primary";
+  width?: string
 }) => {
-  const buttonStyles = type === "primary" ? "primary" : null;
 
   return (
     <Modal
@@ -22,7 +22,9 @@ export const UIModal = ({
       onCancel={onCancel}
       open={open}
       footer={null}
-      className="ui-modal"
+      className='ui-modal'
+      style={{ backgroundColor: 'black'}}
+      width={width}
     >
       {children}
     </Modal>

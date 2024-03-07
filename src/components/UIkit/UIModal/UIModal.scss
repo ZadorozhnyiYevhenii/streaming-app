@@ -1,0 +1,14 @@
+@import "../../../styleutils/variables.scss";
+
+$secondary-background: #303036;
+
+.ui-modal {
+  .ant-modal-content {
+    background-color: $secondary-background;
+    color: $main-light-color;
+  }
+
+  .ant-modal-close-icon {
+    color: $main-light-color;
+  }
+}

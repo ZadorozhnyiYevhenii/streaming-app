@@ -20,7 +20,7 @@ export const Register = () => {
   };
   return (
     <>
-      <UIButton onClick={handleButtonClick} type="secondary">
+      <UIButton onClick={handleButtonClick}>
         Register
       </UIButton>
       <UIModal onOk={onOk} onCancel={onCancel} open={isModalOpen}>

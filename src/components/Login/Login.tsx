@@ -21,7 +21,7 @@ export const Login = () => {
 
   return (
     <>
-      <UIButton onClick={handleButtonClick}>Log in</UIButton>
+      <UIButton onClick={handleButtonClick} type="secondary">Log in</UIButton>
       <UIModal onOk={onOk} onCancel={onCancel} open={isModalOpen}>
         <p>Modal is open!</p>
       </UIModal>
