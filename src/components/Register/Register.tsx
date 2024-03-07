@@ -1,10 +1,10 @@
 "use client";
 
-import { UIModal } from "../UIkit/UIModal/UIModal";
 import { useState } from "react";
 import { UIButton } from "../UIkit/UIButton/UIButton";
+import { UIModal } from "../UIkit/UIModal/UIModal";
 
-export const Login = () => {
+export const Register = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const onOk = () => {
@@ -18,12 +18,13 @@ export const Login = () => {
   const handleButtonClick = () => {
     setIsModalOpen(true);
   };
-
   return (
     <>
-      <UIButton onClick={handleButtonClick}>Log in</UIButton>
+      <UIButton onClick={handleButtonClick} type="secondary">
+        Register
+      </UIButton>
       <UIModal onOk={onOk} onCancel={onCancel} open={isModalOpen}>
-        <p>Modal is open!</p>
+        <p>This is modal</p>
       </UIModal>
     </>
   );
