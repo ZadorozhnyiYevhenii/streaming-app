@@ -1,0 +1,29 @@
+@import "../../styleutils/variables.scss";
+
+$primary-background: #9147ff;
+
+$secondary-background: #303036 ;
+
+.ui-button {
+  background: blue;
+  border: none;
+  color: $main-light-color;
+
+  &.primary-button {
+    background: $primary-background;
+    font-weight: 700;
+
+    &:hover {
+      background: #7c2de2;
+    }
+  }
+
+  &.secondary-button {
+    background: $secondary-background;
+    font-weight: 700;
+
+    &:hover {
+      background: #1f1f24;
+    }
+  }
+}

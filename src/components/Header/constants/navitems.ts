@@ -6,5 +6,5 @@ interface NavItems {
 
 export const navitems: NavItems[] = [
   { id: 1, title: "Following", link: "/directory/following" },
-  { id: 1, title: "Browse", link: "/directory" },
+  { id: 2, title: "Browse", link: "/directory" },
 ];
