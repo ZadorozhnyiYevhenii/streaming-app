@@ -38,3 +38,10 @@ a {
     color: $brand-color;
   }
 }
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $main-light-color;
+}

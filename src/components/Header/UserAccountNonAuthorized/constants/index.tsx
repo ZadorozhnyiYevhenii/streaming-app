@@ -1,3 +1,4 @@
+import { LoginOutlined } from "@ant-design/icons";
 import { MenuProps } from "antd";
 
 export const items: MenuProps["items"] = [
@@ -7,6 +8,10 @@ export const items: MenuProps["items"] = [
   },
   {
     key: "2",
-    label: <button>Log out</button>,
+    label: (
+      <button className="user-logout">
+        <LoginOutlined /> Log out
+      </button>
+    ),
   },
 ];

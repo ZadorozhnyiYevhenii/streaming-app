@@ -1,5 +1,6 @@
 import React from "react";
 import { Dropdown, MenuProps, Space } from "antd";
+import './UIDropDown.scss';
 
 export const UIDropDown = ({
   items,
@@ -11,7 +12,7 @@ export const UIDropDown = ({
   children: React.ReactNode;
 }) => {
   return (
-    <Dropdown menu={{ items }} trigger={[trigger]}>
+    <Dropdown menu={{ items }} trigger={[trigger]} className="ui-dropdown">
       <a onClick={(e) => e.preventDefault()}>
         <Space>{children}</Space>
       </a>
