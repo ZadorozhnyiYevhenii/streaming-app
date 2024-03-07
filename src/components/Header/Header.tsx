@@ -1,7 +1,12 @@
+import { HeaderNavigation } from "./HeaderNavigation/HeaderNavigation";
+import { MoreInformation } from "./MoreInformation/MoreInformation";
+import './Header.scss';
+
 export const Header = () => {
   return (
-    <header>
-      It is header
+    <header className="header">
+      <HeaderNavigation />
+      <MoreInformation />
     </header>
   );
 };

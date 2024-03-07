@@ -3,9 +3,37 @@
 body {
   background: $main-dark-color;
   color: $main-light-color;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 [data-theme="light"] body {
   background: $main-light-color;
   color: $main-dark-color;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $main-light-color;
+  transition: color .1s ease-in;
+
+  &:hover {
+    color: $brand-color;
+  }
+}
+
+[data-theme="light"] a {
+  background: $main-light-color;
+  color: $main-dark-color;
+
+  &:hover {
+    color: $brand-color;
+  }
 }

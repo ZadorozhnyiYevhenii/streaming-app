@@ -1,0 +1,46 @@
+@import "../../../styleutils/variables.scss";
+
+.more {
+  position: relative;
+
+  &__list {
+    display: none;
+
+    &--active {
+      display: flex;
+      flex-direction: column;
+      border-radius: 0.7rem;
+      padding-inline: 1rem;
+      padding-block: 1rem;
+
+      position: absolute;
+      background: $popup-color;
+    }
+  }
+
+  &__item {
+    padding-block: 0.8rem;
+    padding-right: 4rem;
+    padding-left: 1rem;
+    transition: all .1s ease-in;
+    cursor: pointer;
+    border-radius: 0.7rem;
+    font-size: 14px;
+
+    &:hover {
+      background-color: $third-dark-color;
+    }
+  }
+
+  &__icon {
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: 20%;
+    font-size: 20px;
+    transition: all 0.1s ease-in;
+
+    &:hover {
+      background-color: $third-dark-color;
+    }
+  }
+}
