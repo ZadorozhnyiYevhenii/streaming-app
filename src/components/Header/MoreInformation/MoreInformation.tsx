@@ -13,16 +13,11 @@ export const MoreInformation = () => {
   const handleOpen = () => {
     setIsClicked((prev) => !prev);
   };
-  
-  const handleCloseOutside = () => {
-    setIsClicked(false);
-  };
 
-  const ref = useOutsideClick(handleCloseOutside)
 
   return (
-    <div className="more" onClick={handleCloseOutside}>
-      <MoreOutlined className="more__icon" onClick={handleOpen} ref={ref} />
+    <div className="more">
+      <MoreOutlined className="more__icon" onClick={handleOpen} />
 
       <ul
         className={classNames("more__list", {
