@@ -1,0 +1,35 @@
+@import "../../../styleutils/variables.scss";
+
+$secondary-background: #303036;
+
+.ant-input-outlined {
+  background: $secondary-background;
+  color: $main-light-color;
+
+  &:hover {
+    border: 1px solid $main-light-color;
+    background: $secondary-background;
+    color: $main-light-color;
+  }
+
+  &:focus {
+    border: 4px solid $brand-color;
+    background: $secondary-background;
+    color: $main-light-color;
+  }
+
+  &:focus-within {
+    background: $secondary-background;
+    border: 4px solid $brand-color;
+    color: $main-light-color;
+  }
+}
+
+.ui-input-label {
+  font-weight: 700;
+  font-size: 14px;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

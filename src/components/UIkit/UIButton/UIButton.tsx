@@ -7,11 +7,13 @@ export const UIButton = ({
   onClick,
   disabled = false,
   type = "primary",
+  width = '100%'
 }: {
   children?: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   disabled?: boolean;
   type?: "primary" | "secondary";
+  width?: string
 }) => {
   const buttonClass =
     type === "primary" ? "primary-button" : "secondary-button";
@@ -21,6 +23,7 @@ export const UIButton = ({
       onClick={onClick}
       disabled={disabled}
       className={`ui-button ${buttonClass}`}
+      style={{ width: `${width}` }}
     >
       {children}
     </Button>

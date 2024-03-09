@@ -10,7 +10,7 @@ export const items: MenuProps["items"] = [
     key: "2",
     label: (
       <button className="user-logout">
-        <LoginOutlined /> Log out
+        <LoginOutlined /> Log in
       </button>
     ),
   },
