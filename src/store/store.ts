@@ -1,7 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { loginReducer } from "./slices/loginSlice";
+import { registerReducer } from "./slices/registerSlice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    login: loginReducer,
+    register: registerReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
