@@ -1,15 +1,25 @@
 import Link from "next/link";
 import { navitems } from "../constants/navitems";
-import './HeaderNavigation.scss';
+import "./HeaderNavigation.scss";
 
 export const HeaderNavigation = () => {
+  const user = true;
+
   return (
     <ul className="header-navigation">
-      {navitems.map((item) => (
-        <li key={item.id} className="header-navigation__item">
-          <Link href={item.link}>{item.title}</Link>
-        </li>
-      ))}
+      {user
+        ? navitems.map(({ id, link, title }) => (
+            <li key={id} className="header-navigation__item">
+              <Link href={link}>{title}</Link>
+            </li>
+          ))
+        : navitems
+            .filter((user) => !user.auth)
+            .map(({ id, link, title }) => (
+              <li key={id} className="header-navigation__item">
+                <Link href={link}>{title}</Link>
+              </li>
+            ))}
     </ul>
   );
 };
