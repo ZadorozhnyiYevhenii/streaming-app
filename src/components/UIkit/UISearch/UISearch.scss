@@ -1,0 +1,21 @@
+@import "../../../styleutils/variables.scss";
+
+.ant-input {
+  color: $main-light-color;
+
+  &::placeholder {
+    color: $main-light-color;
+  }
+}
+
+.ant-input-search {
+  .ant-input:hover {
+    border-color: $brand-color;
+  }
+
+  .ant-input:focus {
+    border-color: $brand-color;
+  }
+}
+
+

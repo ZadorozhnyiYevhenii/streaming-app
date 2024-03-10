@@ -1,13 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { UIButton } from "../UIkit/UIButton/UIButton";
 import { UIModal } from "../UIkit/UIModal/UIModal";
 import { UIInput } from "../UIkit/UIInput/UIInput";
 import { Titles } from "./constants";
-import './Register.scss';
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setIsRegisterOpen } from "@/store/slices/registerSlice";
+import './Register.scss';
 
 export const Register = () => {
   const { isRegisterOpen } = useAppSelector(state => state.register);

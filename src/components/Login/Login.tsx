@@ -6,8 +6,8 @@ import { UIInput } from "../UIkit/UIInput/UIInput";
 import { Titles } from "./constants";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setIsLoginOpen } from "@/store/slices/loginSlice";
-import "./Login.scss";
 import { setIsRegisterOpen } from "@/store/slices/registerSlice";
+import "./Login.scss";
 
 export const Login = () => {
   const { isLoginOpen } = useAppSelector((state) => state.login);

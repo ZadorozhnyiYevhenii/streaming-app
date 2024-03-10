@@ -7,13 +7,13 @@ export const UIModal = ({
   onOk,
   onCancel,
   open,
-  width = "50%",
+  width = 50
 }: {
   children: React.ReactNode;
   onOk: () => void;
   onCancel: () => void;
   open: boolean;
-  width?: string;
+  width?: number
 }) => {
   return (
     <Modal
@@ -23,7 +23,7 @@ export const UIModal = ({
       footer={null}
       className="ui-modal"
       style={{ maxWidth: "600px" }}
-      width={width}
+      width={`${width}%`}
     >
       {children}
     </Modal>

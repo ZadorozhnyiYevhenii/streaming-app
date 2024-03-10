@@ -3,10 +3,10 @@
 import { UserOutlined } from "@ant-design/icons";
 import { items } from "./constants";
 import { UIDropDown } from "@/components/UIkit/UIDropDown/UIDropDown";
-import "./UserAccountNonAuthorized.scss";
 import { useAppDispatch } from "@/store/hooks";
 import { MenuProps } from "antd";
 import { setIsLoginOpen } from "@/store/slices/loginSlice";
+import "./UserAccountNonAuthorized.scss";
 
 export const UserAccountNonAuthorized = () => {
   const dispatch = useAppDispatch();
