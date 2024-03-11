@@ -1,14 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { VerticalLeftOutlined, VerticalRightOutlined } from "@ant-design/icons";
 import "./AsideBar.scss";
 
 export const AsideBar = () => {
-  const [isAsideBarHidden, setIsAsideBarHidden] = useState(() => {
+  const [isAsideBarHidden, setIsAsideBarHidden] = useState(true);
+
+  useEffect(() => {
     const storedValue = localStorage.getItem("isAsideBarHidden");
-    return storedValue ? JSON.parse(storedValue) : true;
-  });
+    setIsAsideBarHidden(storedValue ? JSON.parse(storedValue) : true);
+  }, []);
 
   const handleHiddenClick = () => {
     setIsAsideBarHidden((prev: boolean) => {
