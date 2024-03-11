@@ -48,7 +48,7 @@ export const AvatarLoader = () => {
             <label className="avatar__uploader">
               <UploadOutlined className="avatar__download-icon" />
               <span className="avatar__file-title">Upload Photo</span>
-              <input type="file" style={{ display: 'none' }} />
+              <input type="file" style={{ display: "none" }} />
             </label>
           </UIModal>
         </div>

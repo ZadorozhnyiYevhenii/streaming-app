@@ -1,13 +1,16 @@
+import Link from "next/link";
 import { HeaderNavigation } from "./HeaderNavigation/HeaderNavigation";
 import { Login } from "../Login/Login";
 import { Register } from "../Register/Register";
 import { UserAccountNonAuthorized } from "./UserAccountNonAuthorized/UserAccountNonAuthorized";
 import { UISearch } from "../UIkit/UISearch/UISearch";
 import { Logo } from "../UIkit/Logo/Logo";
-import Link from "next/link";
+import { UserAccountAuthorized } from "./UserAccountAuthorized/UserAccountAuthorized";
 import "./Header.scss";
 
 export const Header = () => {
+  const user = true;
+
   return (
     <header className="header">
       <div className="header__left">
@@ -24,7 +27,11 @@ export const Header = () => {
       <div className="header__right">
         <Login />
         <Register />
-        <UserAccountNonAuthorized />
+        {user ? (
+          <UserAccountAuthorized />
+        ) : (
+          <UserAccountNonAuthorized />
+        )}
       </div>
     </header>
   );
