@@ -4,6 +4,7 @@
   background-color: $popup-color;
   width: 20%;
   height: calc(100vh - 4rem);
+  max-width: 284px;
 
   &--hidden {
     width: 3%;

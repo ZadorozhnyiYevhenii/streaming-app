@@ -1,0 +1,78 @@
+@import "../../styleutils/variables.scss";
+
+$secondary-dark-color: #18181b;
+
+.avatar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__title {
+    font-size: 18px;
+  }
+
+  &__container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    width: 100%;
+    max-width: 900px;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid $border-color;
+
+    box-sizing: border-box;
+
+    background: $secondary-dark-color;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__image {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+  }
+
+
+  &__upload-title {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  &__uploader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    
+    padding: 2rem;
+    background: $secondary-dark-color;
+    border: 1px solid $border-color;
+    border-radius: 0.5rem;
+
+    &:hover {
+      background: $third-dark-color;
+    }
+  }
+
+  &__download-icon {
+    height: 3rem;
+    color: $second-brand-color;
+
+    svg {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  &__file-title {
+    color: $second-brand-color;
+    font-weight: 600;
+  }
+}
