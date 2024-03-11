@@ -5,8 +5,8 @@ import Image from "next/image";
 import defaultAvatar from "@/assets/default-avatar.png";
 import { UIButton } from "../UIkit/UIButton/UIButton";
 import { UIModal } from "../UIkit/UIModal/UIModal";
-import "./AvatarLoader.scss";
 import { UploadOutlined } from "@ant-design/icons";
+import "./AvatarLoader.scss";
 
 export const AvatarLoader = () => {
   const [isImageLoaderOpen, setIsImageLoaderOpen] = useState(false);
@@ -31,6 +31,7 @@ export const AvatarLoader = () => {
           src={defaultAvatar}
           alt="Your avatar"
           className="avatar__image"
+          loading="lazy"
         />
         <div className="avatar__content">
           <UIButton onClick={handleButtonClick} type="secondary">

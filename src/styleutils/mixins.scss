@@ -1,0 +1,15 @@
+@import "./variables.scss";
+
+$secondary-dark-color: #18181b;
+
+@mixin settingsContainer {
+  width: 100%;
+  max-width: 900px;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid $border-color;
+
+  box-sizing: border-box;
+
+  background: $secondary-dark-color;
+}
