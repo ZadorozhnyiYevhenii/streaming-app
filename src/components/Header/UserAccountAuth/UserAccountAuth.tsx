@@ -1,10 +1,12 @@
 "use client";
 
 import { UIDropDown } from "@/components/UIkit/UIDropDown/UIDropDown";
-import { UserOutlined } from "@ant-design/icons";
 import { MenuProps } from "antd";
 import { items } from "./constants";
 import { IUser } from "@/types/IUser";
+import Image from "next/image";
+import defaultAvatar from "@/assets/default-avatar.png";
+import "./UserAccountAuth.scss";
 
 const user: Pick<IUser, "avatar"> = {
   avatar: false,
@@ -20,9 +22,9 @@ export const UserAccountAuthorized = () => {
   return (
     <UIDropDown items={items} onMenuItemClick={handleLogoutClick}>
       {user.avatar ? (
-        <div>ddqdq</div>
+        <Image className="user-auth" src={defaultAvatar} alt="default avatar" />
       ) : (
-        <UserOutlined className="user-notauth" style={{ padding: "0.5rem" }} />
+        <Image className="user-auth" src={defaultAvatar} alt="default avatar" />
       )}
     </UIDropDown>
   );
