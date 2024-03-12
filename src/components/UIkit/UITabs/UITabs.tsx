@@ -1,6 +1,12 @@
 import { Tabs, TabsProps } from "antd";
-import './UITabs.scss';
+import "./UITabs.scss";
 
-export const UITabs = ({ items }: { items: TabsProps["items"] }) => {
-  return <Tabs defaultActiveKey="1" items={items} />;
+export const UITabs = ({
+  items,
+  activeKey,
+}: {
+  items: TabsProps["items"];
+  activeKey: string;
+}) => {
+  return <Tabs items={items} activeKey={activeKey} />;
 };

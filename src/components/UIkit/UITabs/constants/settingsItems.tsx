@@ -3,15 +3,16 @@ import Link from "next/link";
 
 export const settingsItems: TabsProps["items"] = [
   {
-    key: "1",
+    key: "profile",
     label: <Link href={'/settings/profile'} className="ui-tabs-link">Profile</Link>,
+  
   },
   {
-    key: "2",
+    key: "chanel",
     label: <Link href={'/'} className="ui-tabs-link">Chanel and videos</Link>,
   },
   {
-    key: "3",
+    key: "notifications",
     label: <Link href={'/settings/notifications'} className="ui-tabs-link">Notifications</Link>
   }
 ]
