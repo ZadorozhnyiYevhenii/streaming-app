@@ -18,7 +18,7 @@ ul {
 a {
   text-decoration: none;
   color: $main-light-color;
-  transition: color .1s ease-in;
+  transition: color 0.1s ease-in;
   cursor: pointer;
 
   &:hover {
@@ -45,13 +45,4 @@ button {
 .wrap {
   display: flex;
   gap: 2rem;
-}
-
-.loader {
-  color: $second-brand-color;
-  font-size: large;
-
-  display: flex;
-  align-items: center;
-  justify-content: center ;
 }

@@ -1,5 +1,5 @@
-import { LoadingOutlined } from "@ant-design/icons";
+import { UILoader } from "@/components/UIkit/UILoader/UILoader";
 
 export default function Loading() {
-  return <LoadingOutlined className="loader" />;
+  return <UILoader />;
 }

@@ -1,0 +1,13 @@
+@import "../../../styleutils/variables.scss";
+
+.loader {
+  color: $second-brand-color;
+  font-size: 5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  width: 100vw;
+}

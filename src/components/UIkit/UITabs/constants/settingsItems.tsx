@@ -5,7 +5,6 @@ export const settingsItems: TabsProps["items"] = [
   {
     key: "profile",
     label: <Link href={'/settings/profile'} className="ui-tabs-link">Profile</Link>,
-  
   },
   {
     key: "chanel",
