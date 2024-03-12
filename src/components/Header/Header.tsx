@@ -2,10 +2,10 @@ import Link from "next/link";
 import { HeaderNavigation } from "./HeaderNavigation/HeaderNavigation";
 import { Login } from "../Login/Login";
 import { Register } from "../Register/Register";
-import { UserAccountNonAuthorized } from "./UserAccountNonAuthorized/UserAccountNonAuthorized";
+import { UserAccountNonAuthorized } from "./UserAccountNonAuth/UserAccountNonAuth";
 import { UISearch } from "../UIkit/UISearch/UISearch";
 import { Logo } from "../UIkit/Logo/Logo";
-import { UserAccountAuthorized } from "./UserAccountAuthorized/UserAccountAuthorized";
+import { UserAccountAuthorized } from "./UserAccountAuth/UserAccountAuth";
 import "./Header.scss";
 
 export const Header = () => {

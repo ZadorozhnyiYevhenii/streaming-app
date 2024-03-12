@@ -6,7 +6,7 @@ import { UIDropDown } from "@/components/UIkit/UIDropDown/UIDropDown";
 import { useAppDispatch } from "@/store/hooks";
 import { MenuProps } from "antd";
 import { setIsLoginOpen } from "@/store/slices/loginSlice";
-import "./UserAccountNonAuthorized.scss";
+import "./UserAccountNonAuth.scss";
 
 export const UserAccountNonAuthorized = () => {
   const dispatch = useAppDispatch();

@@ -2,14 +2,18 @@ import { Input } from "antd";
 import "./UIInput.scss";
 
 export const UIInput = ({
-  label
+  label,
+  height,
+  width,
 }: {
-  label: string
+  label?: string;
+  height?: number;
+  width?: number;
 }) => {
   return (
     <label className="ui-input-label">
       {label}
-      <Input />
+      <Input style={{ height: `${height}rem`, width: `${width}rem` }} />
     </label>
   );
 };

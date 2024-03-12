@@ -7,13 +7,13 @@ export const UIButton = ({
   onClick,
   disabled = false,
   type = "primary",
-  width = '100%'
+  width = "100%",
 }: {
   children?: React.ReactNode;
   onClick?: () => void;
   disabled?: boolean;
   type?: "primary" | "secondary";
-  width?: string
+  width?: string;
 }) => {
   const buttonClass =
     type === "primary" ? "primary-button" : "secondary-button";

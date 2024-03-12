@@ -1,0 +1,48 @@
+@import "../../styleutils/variables.scss";
+@import "../../styleutils/mixins.scss";
+
+$subtitle-color: #adadb8;
+
+.profile-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__title {
+    font-size: 18px;
+  }
+
+  &__subtitle {
+    font-size: 12px;
+    color: $subtitle-color;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include settingsContainer;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+
+    &--start {
+      align-items: start;
+    }
+  }
+
+  &__span {
+    flex: 0 0 20%;
+  }
+
+  &__input {
+    flex: 0 0 80%;
+  }
+
+  &__btn {
+    align-self: self-end;
+  }
+}
