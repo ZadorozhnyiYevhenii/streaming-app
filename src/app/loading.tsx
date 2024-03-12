@@ -1,3 +1,5 @@
+import { LoadingOutlined } from "@ant-design/icons";
+
 export default function Loading() {
-  return <div>...Loading</div>;
+  return <LoadingOutlined className="loader" />;
 }

@@ -4,24 +4,25 @@ import {
   VideoCameraOutlined,
 } from "@ant-design/icons";
 import { MenuProps } from "antd";
+import Link from "next/link";
 
 export const items: MenuProps["items"] = [
   {
     key: "1",
     label: (
-      <button className="user-logout">
+      <Link href={'/chanel'} className="user-logout">
         <VideoCameraOutlined />
         Channel
-      </button>
+      </Link>
     ),
   },
   {
     key: "2",
     label: (
-      <button className="user-logout">
+      <Link href={'/settings/profile'} className="user-logout">
         <SettingOutlined />
         Settings
-      </button>
+      </Link>
     ),
   },
   {

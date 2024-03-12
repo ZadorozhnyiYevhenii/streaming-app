@@ -9,7 +9,7 @@ import { UserAccountAuthorized } from "./UserAccountAuth/UserAccountAuth";
 import "./Header.scss";
 
 export const Header = () => {
-  const user = true;
+  const user = false;
 
   return (
     <header className="header">
@@ -25,12 +25,14 @@ export const Header = () => {
       </div>
 
       <div className="header__right">
-        <Login />
-        <Register />
         {user ? (
           <UserAccountAuthorized />
         ) : (
-          <UserAccountNonAuthorized />
+          <>
+            <Login />
+            <Register />
+            <UserAccountNonAuthorized />
+          </>
         )}
       </div>
     </header>

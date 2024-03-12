@@ -12,7 +12,7 @@ export const UserAccountNonAuthorized = () => {
   const dispatch = useAppDispatch();
 
   const handleLoginClick: MenuProps["onClick"] = (e) => {
-    if (e.key === "2") {
+    if (e.key === "1") {
       dispatch(setIsLoginOpen(true));
     }
   };

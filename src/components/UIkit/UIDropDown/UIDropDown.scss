@@ -1,6 +1,12 @@
+@import "../../../styleutils/variables.scss";
+
 $secondary-background: #303036;
 
 .ant-dropdown .ant-dropdown-menu {
   background-color: $secondary-background;
   padding-block: 1rem;
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-title-content >a {
+  color: $main-light-color;
 }
