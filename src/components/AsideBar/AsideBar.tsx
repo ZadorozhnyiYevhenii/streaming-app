@@ -1,10 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { VerticalLeftOutlined, VerticalRightOutlined } from "@ant-design/icons";
 import "./AsideBar.scss";
 
-export const AsideBar = () => {
+export const AsideBar = ({
+  children,
+  title,
+  close = true
+}: {
+  children: React.ReactNode;
+  title: string;
+  close?: boolean
+}) => {
   const [isAsideBarHidden, setIsAsideBarHidden] = useState(true);
 
   useEffect(() => {
@@ -33,17 +41,20 @@ export const AsideBar = () => {
             !isAsideBarHidden ? "aside__title--hidden" : ""
           }`}
         >
-          {user ? "Your" : "Recommended channels"}
+          {title}
         </h2>
 
-        <button onClick={handleHiddenClick}>
+        {close && (
+          <button onClick={handleHiddenClick}>
           {!isAsideBarHidden ? (
             <VerticalLeftOutlined />
           ) : (
             <VerticalRightOutlined />
           )}
         </button>
+        )}
       </div>
+      {children}
     </aside>
   );
 };

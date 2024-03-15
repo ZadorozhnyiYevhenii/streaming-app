@@ -1,0 +1,26 @@
+.keys {
+  width: 100%;
+  margin-inline: 2rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__modal-title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &__modal-btns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__key-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

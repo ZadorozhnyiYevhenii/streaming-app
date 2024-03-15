@@ -25,6 +25,11 @@ $secondary-background: #303036;
   }
 }
 
+.ant-input-outlined[disabled] {
+  background: $secondary-background;
+  color: $main-light-color;
+}
+
 .ui-input-label {
   font-weight: 700;
   font-size: 14px;

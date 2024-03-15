@@ -26,4 +26,9 @@ $secondary-background: #303036;
       background: #1f1f24;
     }
   }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }

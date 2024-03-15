@@ -22,7 +22,7 @@ export const UIButton = ({
     <Button
       onClick={onClick}
       disabled={disabled}
-      className={`ui-button ${buttonClass}`}
+      className={`ui-button ${buttonClass} ${disabled ? 'ui-button--disabled' : ''}`}
       style={{ width: `${width}` }}
     >
       {children}

@@ -1,27 +1,23 @@
-import React from "react";
-import { Dropdown, MenuProps, Space } from "antd";
-import "./UIDropDown.scss";
+import { DropDownOption } from "@/types/DropDownOption";
+import { Select, Space } from "antd";
 
 export const UIDropDown = ({
-  items,
-  trigger = "click",
-  children,
-  onMenuItemClick,
+  disabled,
+  onChange,
+  options,
 }: {
-  items: MenuProps["items"];
-  trigger?: "click" | "hover";
-  children: React.ReactNode;
-  onMenuItemClick?: MenuProps["onClick"];
+  disabled?: boolean;
+  onChange: (value: string) => void;
+  options: DropDownOption[];
 }) => {
   return (
-    <Dropdown
-      menu={{ items, onClick: onMenuItemClick }}
-      trigger={[trigger]}
-      className="ui-dropdown"
-    >
-      <a onClick={(e) => e.preventDefault()}>
-        <Space>{children}</Space>
-      </a>
-    </Dropdown>
+    <Space wrap>
+      <Select
+        style={{ width: "100%" }}
+        disabled={disabled}
+        onChange={onChange}
+        options={options}
+      />
+    </Space>
   );
 };

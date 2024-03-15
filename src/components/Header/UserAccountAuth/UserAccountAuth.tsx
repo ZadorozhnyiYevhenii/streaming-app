@@ -1,6 +1,6 @@
 "use client";
 
-import { UIDropDown } from "@/components/UIkit/UIDropDown/UIDropDown";
+import { UIDropDown } from "@/components/UIkit/UIContextMenu/UIDropDown";
 import { MenuProps } from "antd";
 import { items } from "./constants";
 import { IUser } from "@/types/IUser";
@@ -8,9 +8,6 @@ import Image from "next/image";
 import defaultAvatar from "@/assets/default-avatar.png";
 import "./UserAccountAuth.scss";
 
-const user: Pick<IUser, "avatar"> = {
-  avatar: false,
-};
 
 export const UserAccountAuthorized = () => {
   const handleLogoutClick: MenuProps["onClick"] = (e) => {
@@ -19,9 +16,11 @@ export const UserAccountAuthorized = () => {
     }
   };
 
+  const avatar = false
+
   return (
     <UIDropDown items={items} onMenuItemClick={handleLogoutClick}>
-      {user.avatar ? (
+      {avatar ? (
         <Image className="user-auth" src={defaultAvatar} alt="default avatar" />
       ) : (
         <Image className="user-auth" src={defaultAvatar} alt="default avatar" />

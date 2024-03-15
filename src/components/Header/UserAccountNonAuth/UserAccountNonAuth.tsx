@@ -2,7 +2,7 @@
 
 import { UserOutlined } from "@ant-design/icons";
 import { items } from "./constants";
-import { UIDropDown } from "@/components/UIkit/UIDropDown/UIDropDown";
+import { UIDropDown } from "@/components/UIkit/UIContextMenu/UIDropDown";
 import { useAppDispatch } from "@/store/hooks";
 import { MenuProps } from "antd";
 import { setIsLoginOpen } from "@/store/slices/loginSlice";

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "@/components/Header/Header";
 import { StorageProvider } from "@/providers/StorageProvider";
-import { AsideBar } from "@/components/AsideBar/AsideBar";
 import "./globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,7 +22,6 @@ export default function RootLayout({
         <body className={inter.className}>
           <Header />
           <div className="wrap">
-            <AsideBar />
             {children}
           </div>
         </body>
