@@ -1,9 +1,12 @@
-import { BASE_URL } from "../chore";
+import { IUser } from "@/types/IUser";
+import { postCallWithAuth } from "..";
+import { BASE_URL } from "../core";
+import { HttpMethod } from "../types";
 
 export const fetchUser = async () => {
   try {
     const response = await fetch(`${BASE_URL}/user`, {
-      method: "POST",
+      method: HttpMethod.POST,
       headers: {
         "Content-Type": "application/json",
       },
@@ -21,5 +24,16 @@ export const fetchUser = async () => {
     return data;
   } catch (error) {
     console.error(error);
+  }
+};
+
+export const createUser = async (user: IUser) => {
+  try {
+    const newUser = await postCallWithAuth(user, "/user", user.jwt);
+
+    return newUser;
+  } catch (error) {
+    console.error(error);
+    throw new Error();
   }
 };

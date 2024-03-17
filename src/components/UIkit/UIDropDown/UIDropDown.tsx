@@ -1,5 +1,6 @@
 import { DropDownOption } from "@/types/DropDownOption";
 import { Select, Space } from "antd";
+import './UIDropDown.scss';
 
 export const UIDropDown = ({
   disabled,

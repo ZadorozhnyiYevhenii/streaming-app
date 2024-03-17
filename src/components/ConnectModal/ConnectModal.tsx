@@ -1,6 +1,5 @@
 "use client";
 
-import { Select, Space } from "antd";
 import { UIButton } from "../UIkit/UIButton/UIButton";
 import { UIModal } from "../UIkit/UIModal/UIModal";
 import { IngressInput } from "livekit-server-sdk";
@@ -10,6 +9,7 @@ import { toast } from "sonner";
 import { fetchUserInfo } from "@/api/fetchUser/fetchUserInfo";
 import { UIDropDown } from "../UIkit/UIDropDown/UIDropDown";
 import { DropDownOption } from "@/types/DropDownOption";
+import "./ConnectModal.scss";
 
 const RTMP = String(IngressInput.RTMP_INPUT);
 const WHIP = String(IngressInput.WHIP_INPUT);
@@ -38,22 +38,6 @@ export const ConnectModal = () => {
     });
   };
 
-  // const s = async () => {
-  //   startTransition(async () => {
-  //     try {
-  //       const response = await createIngress(parseInt(ingressType));
-  //       const ingressId = response.ingressId;
-  //       const serverUrl = response.url;
-  //       const streamKey = response.streamKey;
-  //       const ch = await changeStreamInfo({ ingressId, serverUrl, streamKey });
-  //       console.log("data connect modal" ,ch)
-  //       return ch;
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   })
-  // };
-
   const handleButtonClick = () => {
     setIsClicked(true);
   };
@@ -73,31 +57,22 @@ export const ConnectModal = () => {
       </UIButton>
       <UIModal onOk={onOk} onCancel={onCancel} open={isClicked}>
         <h2 className="keys__modal-title">Generate collection</h2>
-        <Space wrap style={{ width: "100%" }}>
-          <Select
-            style={{ width: "100%" }}
+
+        <div className="modal-wrap">
+          <UIDropDown
             disabled={isPending}
             onChange={(value) => setIngressType(value)}
-            options={[
-              { value: RTMP, label: "RTMP" },
-              { value: WHIP, label: "WHIP" },
-            ]}
+            options={options}
           />
-        </Space>
 
-        <UIDropDown
-          disabled={isPending}
-          onChange={(value) => setIngressType(value)}
-          options={options}
-        />
-
-        <div className="keys__modal-btns">
-          <UIButton width="30" type="secondary" onClick={onCancel}>
-            Cancel
-          </UIButton>
-          <UIButton width="30" onClick={onSubmit} disabled={isPending}>
-            Generate
-          </UIButton>
+          <div className="keys__modal-btns">
+            <UIButton width="30" type="secondary" onClick={onCancel}>
+              Cancel
+            </UIButton>
+            <UIButton width="30" onClick={onSubmit} disabled={isPending}>
+              Generate
+            </UIButton>
+          </div>
         </div>
       </UIModal>
     </>

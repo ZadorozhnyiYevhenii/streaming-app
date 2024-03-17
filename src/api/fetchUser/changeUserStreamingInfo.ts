@@ -1,30 +1,16 @@
 import { IUser } from "@/types/IUser";
-import { BASE_URL } from "../chore";
+import { postCallWithAuth } from "@/api";
 
-export const changeUserStreamingInfo = async ({ ingressId, serverUrl, streamKey}: Pick<IUser, 'ingressId' | 'serverUrl' | 'streamKey'>) => {
+export const changeUserStreamingInfo = async (
+  streamingInfo: Pick<IUser, "ingressId" | "serverUrl" | "streamKey">,
+  token: string,
+  id: string
+) => {
   try {
-    const response = await fetch(`${BASE_URL}/user/update/fbd645b0-f22b-421b-ab75-5623632cb2e9`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        serverUrl: serverUrl,
-        ingressId: ingressId,
-        streamKey: streamKey
-      }),
-      cache: 'no-store'
-    })
+    const userInfo = await postCallWithAuth(streamingInfo, `/user/update/${id}`, token);
 
-    if (!response.ok) {
-      throw new Error
-    }
-
-    const data = await response.json();
-
-    return data;
+    return userInfo;
   } catch (error) {
-    console.log(error)
-    throw new Error
+    console.error(error);
   }
-}
+};

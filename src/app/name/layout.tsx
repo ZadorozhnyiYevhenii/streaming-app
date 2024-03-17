@@ -1,20 +1,24 @@
 import { AsideBar } from "@/components/AsideBar/AsideBar";
-import { KeyOutlined } from "@ant-design/icons";
+import Link from "next/link";
 import "./layout.scss";
-import React from "react";
+import { dashboardItems } from "@/components/AsideBar/constants/dashboardItems";
 
 export default function DashBoardLayout({
-  children
+  children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <>
       <AsideBar title="Dashboard" close={false}>
         <ul className="dashboard-list">
-          <li className="dashboard-list__item">
-            <KeyOutlined /> Keys & URLs
-          </li>
+          {dashboardItems.map((item) => (
+            <li key={item.id}>
+              <Link href={item.href} className="dashboard-list__item">
+                {item.icon} {item.title}
+              </Link>
+            </li>
+          ))}
         </ul>
       </AsideBar>
       {children}

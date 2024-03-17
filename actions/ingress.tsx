@@ -1,7 +1,9 @@
 "use server";
 
 import { changeUserStreamingInfo } from "@/api/fetchUser/changeUserStreamingInfo";
-import { fetchUserInfo } from "@/api/fetchUser/fetchUserInfo";
+import { getUser } from "@/api/fetchUser/fetchUserInfo";
+import { useAppSelector } from "@/store/hooks";
+import { IUser } from "@/types/IUser";
 import {
   IngressAudioEncodingPreset,
   IngressInput,
@@ -40,8 +42,9 @@ export const resetIngresses = async (hostIdentity: string) => {
 };
 
 export const createIngress = async (ingressType: IngressInput) => {
+  const { user: userInfo, token } = useAppSelector(state => state.user);
   try {
-    const user = await fetchUserInfo();
+    const user = await getUser((userInfo as IUser).id);
     await resetIngresses(user.id);
 
     const options: CreateIngressOptions = {
@@ -71,15 +74,19 @@ export const createIngress = async (ingressType: IngressInput) => {
       throw new Error("Failed to create ingress");
     }
 
-    await changeUserStreamingInfo({
-      ingressId: ingress.ingressId,
-      serverUrl: ingress.url,
-      streamKey: ingress.streamKey,
-    });
+    await changeUserStreamingInfo(
+      {
+        ingressId: ingress.ingressId,
+        serverUrl: ingress.url,
+        streamKey: ingress.streamKey,
+      },
+      token,
+      user.id,
+    );
 
     // TODO: post on user info update
 
-    revalidatePath(`/name/keys`);
+    revalidatePath(`/${user.username}/keys`);
     return ingress;
   } catch (error) {
     console.error(error);

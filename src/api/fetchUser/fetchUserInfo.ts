@@ -1,16 +1,11 @@
 import { IUser } from "@/types/IUser";
-import { BASE_URL } from "../chore";
+import { getCall } from "@/api";
 
-export const fetchUserInfo = async () => {
+export const getUser = async (id: string): Promise<IUser> => {
   try {
-    const response = await fetch(
-      `${BASE_URL}/user/fbd645b0-f22b-421b-ab75-5623632cb2e9`,
-      { cache: "no-store" }
-    );
-    const data: IUser = await response.json();
-    console.log("user data", data);
+    const response = await getCall(id);
 
-    return data
+    return response;
   } catch (error) {
     console.error(error);
     throw new Error();

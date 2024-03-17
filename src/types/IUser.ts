@@ -6,5 +6,6 @@ export interface IUser {
   streamKey: string | undefined;
   ingressId: string | undefined;
   thumbnaiURL: string;
-  id: string
+  id: string;
+  jwt: string
 }
