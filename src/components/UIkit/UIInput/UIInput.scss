@@ -2,9 +2,33 @@
 
 $secondary-background: #303036;
 
-.ant-input-outlined {
+.ant-input-outlined[disabled] {
   background: $secondary-background;
   color: $main-light-color;
+}
+
+.ui-input-label {
+  font-weight: 700;
+  font-size: 14px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  position: relative;
+}
+
+.ui-input {
+
+  background: $secondary-background;
+  color: $main-light-color;
+  outline: none;
+  border: 1px solid $border-color;
+  box-sizing: border-box;
+  height: 2rem;
+  border-radius: 0.4rem;
+  transition: all .1s ease-in;
+  padding-left: 1rem;
 
   &:hover {
     border: 1px solid $main-light-color;
@@ -23,18 +47,10 @@ $secondary-background: #303036;
     border: 2px solid $brand-color;
     color: $main-light-color;
   }
-}
 
-.ant-input-outlined[disabled] {
-  background: $secondary-background;
-  color: $main-light-color;
-}
-
-.ui-input-label {
-  font-weight: 700;
-  font-size: 14px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  &__icon {
+    position: absolute;
+    right: 2rem;
+    bottom: 0.5rem;
+  }
 }

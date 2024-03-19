@@ -27,8 +27,6 @@ export const AsideBar = ({
     });
   };
 
-  const user = false;
-
   return (
     <aside className={`aside ${!isAsideBarHidden ? "aside--hidden" : ""}`}>
       <div

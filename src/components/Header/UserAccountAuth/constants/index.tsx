@@ -10,7 +10,7 @@ export const items: MenuProps["items"] = [
   {
     key: "1",
     label: (
-      <Link href={'/chanel'} className="user-logout">
+      <Link href={"/chanel"} className="user-logout">
         <VideoCameraOutlined />
         Channel
       </Link>
@@ -19,7 +19,7 @@ export const items: MenuProps["items"] = [
   {
     key: "2",
     label: (
-      <Link href={'/settings/profile'} className="user-logout">
+      <Link href={"/settings/profile"} className="user-logout">
         <SettingOutlined />
         Settings
       </Link>

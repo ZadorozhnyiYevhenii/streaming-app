@@ -4,11 +4,13 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 interface UserType {
   user: IUser | null;
   token: string;
+  loginInfo: Pick<IUser, "username" | "password"> | null;
 }
 
 const initialState: UserType = {
   user: null,
   token: "",
+  loginInfo: null,
 };
 
 const userSlice = createSlice({
@@ -21,17 +23,22 @@ const userSlice = createSlice({
     setToken: (state, action: PayloadAction<string>) => {
       state.token = action.payload;
     },
-    removeUser: (state, action) => {
+    removeUser: (state) => {
       state.user = null;
     },
-    removeToken: (state, action) => {
+    removeToken: (state) => {
       state.token = "";
+    },
+    setLoginInfo: (
+      state,
+      action: PayloadAction<Pick<IUser, "username" | "password">>
+    ) => {
+      state.loginInfo = action.payload;
     },
   },
 });
 
-export const {
-  setUser, setToken, removeToken, removeUser
-} = userSlice.actions;
+export const { setUser, setToken, removeToken, removeUser, setLoginInfo } =
+  userSlice.actions;
 
 export const userReducer = userSlice.reducer;

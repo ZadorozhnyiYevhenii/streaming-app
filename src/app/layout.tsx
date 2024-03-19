@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "@/components/Header/Header";
-import { StorageProvider } from "@/providers/StorageProvider";
 import "./globals.scss";
+import { StorageProvider } from "@/providers/StorageProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,14 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <StorageProvider>
         <body className={inter.className}>
+      <StorageProvider>
           <Header />
           <div className="wrap">
             {children}
           </div>
-        </body>
       </StorageProvider>
+        </body>
     </html>
   );
 }

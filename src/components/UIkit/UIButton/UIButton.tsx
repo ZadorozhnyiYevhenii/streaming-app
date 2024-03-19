@@ -8,12 +8,16 @@ export const UIButton = ({
   disabled = false,
   type = "primary",
   width = "100%",
+  loading = false,
+  htmlType = 'button'
 }: {
   children?: React.ReactNode;
   onClick?: () => void;
   disabled?: boolean;
   type?: "primary" | "secondary";
   width?: string;
+  loading?: boolean
+  htmlType?: "submit" | "reset" | "button"
 }) => {
   const buttonClass =
     type === "primary" ? "primary-button" : "secondary-button";
@@ -24,6 +28,8 @@ export const UIButton = ({
       disabled={disabled}
       className={`ui-button ${buttonClass} ${disabled ? 'ui-button--disabled' : ''}`}
       style={{ width: `${width}` }}
+      loading={loading}
+      htmlType={htmlType}
     >
       {children}
     </Button>
