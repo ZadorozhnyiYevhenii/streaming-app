@@ -25,7 +25,10 @@ export default function SettingsLayout({
     <section className="settings">
       <h1 className="settings__title">Settings</h1>
       <div className="settings__tabs">
-        <UITabs items={settingsItems} activeKey={activeKey} />
+        <UITabs
+          items={settingsItems}
+          activeKey={activeKey}
+        />
       </div>
       {children}
     </section>

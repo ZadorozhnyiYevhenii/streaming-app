@@ -7,11 +7,11 @@ import { UserAccountNonAuthorized } from "../UserAccountNonAuth/UserAccountNonAu
 import { useAppSelector } from "@/store/hooks";
 
 export const HeaderRight = () => {
-  const { token } = useAppSelector((state) => state.user);
+  const { user } = useAppSelector(state => state.user)
 
   return (
     <>
-      {token ? (
+      {user?.jwt ? (
         <UserAccountAuthorized />
       ) : (
         <>

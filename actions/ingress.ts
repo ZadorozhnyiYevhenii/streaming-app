@@ -1,9 +1,5 @@
-"use server";
-
 import { changeUserStreamingInfo } from "@/api/fetchUser/changeUserStreamingInfo";
-import { getUser } from "@/api/fetchUser/fetchUserInfo";
-import { useAppSelector } from "@/store/hooks";
-import { IUser } from "@/types/IUser";
+import { getUserById } from "@/api/fetchUser/getUserById";
 import {
   IngressAudioEncodingPreset,
   IngressInput,
@@ -13,15 +9,15 @@ import {
   type CreateIngressOptions,
 } from "livekit-server-sdk";
 import { TrackSource } from "livekit-server-sdk/dist/proto/livekit_models";
-import { revalidatePath } from "next/cache";
+import { StorageKeys } from "../src/utils/storageKeys";
 
 const roomService = new RoomServiceClient(
-  process.env.LIVEKIT_API_URL!,
-  process.env.LIVEKIT_API_KEY!,
-  process.env.LIVEKIT_API_SECRET!
+  process.env.LIVEKIT_API_URL! || 'https://my-proj-h7lnfrzt.livekit.cloud',
+  process.env.LIVEKIT_API_KEY! || 'API4BUDchzpdN7o',
+  process.env.LIVEKIT_API_SECRET! || 'EZ2BrvMdx8BMRKvynXRPsebSBjCdgfxJ0j3HHLO56ua'
 );
 
-const ingressCLient = new IngressClient(process.env.LIVEKIT_API_URL!);
+const ingressCLient = new IngressClient(process.env.LIVEKIT_API_URL! || 'https://my-proj-h7lnfrzt.livekit.cloud');
 
 export const resetIngresses = async (hostIdentity: string) => {
   const ingresses = await ingressCLient.listIngress({
@@ -42,16 +38,17 @@ export const resetIngresses = async (hostIdentity: string) => {
 };
 
 export const createIngress = async (ingressType: IngressInput) => {
-  const { user: userInfo, token } = useAppSelector(state => state.user);
+  const id = localStorage.getItem(StorageKeys.USERID);
+
   try {
-    const user = await getUser((userInfo as IUser).id);
-    await resetIngresses(user.id);
+    const user = await getUserById()
+    await resetIngresses(id as string);
 
     const options: CreateIngressOptions = {
       name: user.username,
-      roomName: user.id,
+      roomName: id as string,
       participantName: user.username,
-      participantIdentity: user.id,
+      participantIdentity: id as string,
     };
 
     if (ingressType === IngressInput.WHIP_INPUT) {
@@ -80,13 +77,8 @@ export const createIngress = async (ingressType: IngressInput) => {
         serverUrl: ingress.url,
         streamKey: ingress.streamKey,
       },
-      token,
-      user.id,
     );
 
-    // TODO: post on user info update
-
-    revalidatePath(`/${user.username}/keys`);
     return ingress;
   } catch (error) {
     console.error(error);

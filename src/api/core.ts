@@ -1,1 +1,1 @@
-export const BASE_URL = process.env.SERVER;
+export const BASE_URL = process.env.SERVER || 'http://localhost:8080';

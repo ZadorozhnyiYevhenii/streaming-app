@@ -1,15 +1,13 @@
-"use client";
+"use client"
 
 import { UIButton } from "../UIkit/UIButton/UIButton";
 import { UIModal } from "../UIkit/UIModal/UIModal";
 import { IngressInput } from "livekit-server-sdk";
 import { useState, useTransition } from "react";
-import { createIngress } from "../../../actions/ingress";
-import { toast } from "sonner";
-import { fetchUserInfo } from "@/api/fetchUser/fetchUserInfo";
 import { UIDropDown } from "../UIkit/UIDropDown/UIDropDown";
 import { DropDownOption } from "@/types/DropDownOption";
 import "./ConnectModal.scss";
+import { createIngress } from "../../../actions/ingress";
 
 const RTMP = String(IngressInput.RTMP_INPUT);
 const WHIP = String(IngressInput.WHIP_INPUT);
@@ -26,16 +24,16 @@ export const ConnectModal = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [ingressType, setIngressType] = useState<IngressType>(RTMP);
 
-  const onSubmit = () => {
-    startTransition(() => {
-      createIngress(parseInt(ingressType))
-        .then(() => {
-          fetchUserInfo();
-          toast.success("Ingress created");
-          console.log("Success");
-        })
-        .catch(() => toast.error("Something went wrong"));
-    });
+  const onSubmit = async () => {
+    // startTransition(() => {
+    //   createIngress(+ingressType)
+    // });
+
+    try {
+      await createIngress(+ingressType)
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   const handleButtonClick = () => {

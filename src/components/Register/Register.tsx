@@ -9,9 +9,10 @@ import { setIsRegisterOpen } from "@/store/slices/registerSlice";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IUser } from "@/types/IUser";
 import { registerUser } from "@/api/auth/registerUser";
-import { setLoginInfo, setToken, setUser } from "@/store/slices/userSlice";
+import { setUser } from "@/store/slices/userSlice";
 import "./Register.scss";
 import { setIsLoginOpen } from "@/store/slices/loginSlice";
+import { StorageKeys } from "../../utils/storageKeys";
 
 export const Register = () => {
   const {
@@ -35,15 +36,14 @@ export const Register = () => {
     dispatch(setIsRegisterOpen(true));
   };
 
-  const handleRegister: SubmitHandler<
-    Pick<IUser, "username" | "email" | "password">
-  > = async (data) => {
+  const handleRegister: SubmitHandler<IUser> = async (data) => {
     try {
-      await registerUser(data);
+      const id = await registerUser(data);
 
-      dispatch(setLoginInfo(data));
+      dispatch(setUser(data));
       dispatch(setIsRegisterOpen(false));
       dispatch(setIsLoginOpen(true));
+      localStorage.setItem(StorageKeys.USERID, id)
       reset();
     } catch (error) {
       console.error(error);

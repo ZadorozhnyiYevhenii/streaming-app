@@ -1,12 +1,13 @@
 import { IUser } from "@/types/IUser"
 import { HttpMethod } from "../types"
+import { BASE_URL } from "../core";
 
 export const loginUser = async ({
   username,
   password
 }: Pick<IUser, "username" | "password">) => {
   try {
-    const loginReponse = await fetch('http://localhost:8080/auth/authenticate',
+    const loginReponse = await fetch(`${BASE_URL}/auth/authenticate`,
     {
       method: HttpMethod.POST,
       headers: {

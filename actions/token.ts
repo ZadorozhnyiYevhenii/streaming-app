@@ -1,13 +1,14 @@
-"use server";
+"use client";
 
-import { fetchUserInfo } from "@/api/fetchUser/fetchUserInfo";
+import { getUserById } from "@/api/fetchUser/getUserById";
+import { useAppSelector } from "@/store/hooks";
 import { AccessToken } from "livekit-server-sdk";
 
-
 export const createViewerToken = async (hostIdentity: string) => {
-  const self = await fetchUserInfo();
+  const {id, token: jwt} = useAppSelector(state => state.user);
+  const self = await getUserById(id, jwt);
 
-  const host = await fetchUserInfo();
+  const host = await getUserById(id, jwt);
   const isHost = self.id === host.id;
 
   const token = new AccessToken(

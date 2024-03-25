@@ -10,10 +10,10 @@ export const items: MenuProps["items"] = [
   {
     key: "1",
     label: (
-      <Link href={"/chanel"} className="user-logout">
+      <button className="user-logout">
         <VideoCameraOutlined />
         Channel
-      </Link>
+      </button>
     ),
   },
   {

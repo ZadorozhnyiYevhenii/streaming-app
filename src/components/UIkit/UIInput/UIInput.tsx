@@ -16,8 +16,8 @@ interface UIInputProps<T extends FieldValues> {
   value?: string;
   labelWidth?: number;
   inputType?: InputType;
-  name: Path<T>;
-  register: UseFormRegister<T>;
+  name?: Path<T>;
+  register?: UseFormRegister<T>;
   errorMessage?: FieldError | undefined;
   showEyeIcon?: boolean;
   onEyeClick?: () => void;
@@ -37,7 +37,7 @@ export const UIInput = <T extends FieldValues>({
   showEyeIcon,
   onEyeClick,
 }: UIInputProps<T>) => {
-  const inputProps = { ...register(name) };
+  const inputProps = {...(name && register ? register(name) : {})};
 
   const handleEyeClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
@@ -54,8 +54,8 @@ export const UIInput = <T extends FieldValues>({
           disabled={disabled}
           value={value}
           type={inputType}
-          {...inputProps}
           className="ui-input"
+          {...inputProps}
         />
         {showEyeIcon && (
           <button type="button" onClick={handleEyeClick} className="ui-input__icon">

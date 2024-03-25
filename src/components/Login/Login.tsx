@@ -7,18 +7,19 @@ import { Titles } from "./constants";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setIsLoginOpen } from "@/store/slices/loginSlice";
 import { setIsRegisterOpen } from "@/store/slices/registerSlice";
-import "./Login.scss";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IUser } from "@/types/IUser";
 import { loginUser } from "@/api/auth/loginUser";
-import { setToken } from "@/store/slices/userSlice";
 import { useEffect, useState } from "react";
 import { InputType } from "@/types/InputTypes";
+import "./Login.scss";
+import { setToken } from "@/store/slices/userSlice";
+import { StorageKeys } from "../../utils/storageKeys";
 
 export const Login = () => {
   const { isLoginOpen } = useAppSelector((state) => state.login);
   const dispatch = useAppDispatch();
-  const { loginInfo } = useAppSelector((state) => state.user);
+  const { user } = useAppSelector((state) => state.user);
 
   const [inputType, setInputType] = useState<InputType>('password');
 
@@ -35,11 +36,11 @@ export const Login = () => {
   } = useForm<Pick<IUser, "username" | "password">>();
 
   useEffect(() => {
-    if (loginInfo) {
-      setValue("username", loginInfo.username);
-      setValue("password", loginInfo.password);
+    if (user) {
+      setValue("username", user.username);
+      setValue("password", user.password);
     }
-  }, []);
+  }, [user]);
 
   const onOk = () => {
     dispatch(setIsLoginOpen(false));
@@ -62,10 +63,11 @@ export const Login = () => {
     Pick<IUser, "username" | "password">
   > = async (data) => {
     try {
-      const userData = await loginUser(data);
+      const token = await loginUser(data);
       dispatch(setIsRegisterOpen(false));
       dispatch(setIsLoginOpen(false));
-      dispatch(setToken(userData));
+      dispatch(setToken(token));
+      localStorage.setItem(StorageKeys.TOKEN, token)
       reset();
     } catch (error) {
       console.error(error);

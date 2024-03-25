@@ -1,9 +1,12 @@
 import { IUser } from "@/types/IUser";
-import { getCall } from "@/api";
+import { getCall } from "../coreFunctions/getCall";
+import { StorageKeys } from "../../utils/storageKeys";
 
-export const getUser = async (id: string): Promise<IUser> => {
+const userId = localStorage.getItem(StorageKeys.USERID) as string;
+
+export const getUser = async (): Promise<IUser> => {
   try {
-    const response = await getCall(id);
+    const response = await getCall(userId);
 
     return response;
   } catch (error) {

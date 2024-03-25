@@ -2,11 +2,9 @@
 
 import { LiveKitRoom } from "@livekit/components-react";
 import { Video } from "../Video/Video";
-import { useViewerToken } from "@/hooks/useViewerToken";
-import { getUser } from "@/api/fetchUser/fetchUserInfo";
 import { useAppSelector } from "@/store/hooks";
 
-export const StreamPlayer = async () => {
+export const StreamPlayer = () => {
   const { user } = useAppSelector(state => state.user)
 
   // const { token } = useViewerToken(user.id)

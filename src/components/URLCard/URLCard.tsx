@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react";
 import { CopyButton } from "../CopyButton/CopyButton";
 import { UIInput } from "../UIkit/UIInput/UIInput";

@@ -1,5 +1,8 @@
+import { StorageKeys } from "@/utils/storageKeys";
 import { TabsProps } from "antd";
 import Link from "next/link";
+
+const id = localStorage.getItem(StorageKeys.USERID);
 
 export const settingsItems: TabsProps["items"] = [
   {
@@ -8,7 +11,7 @@ export const settingsItems: TabsProps["items"] = [
   },
   {
     key: "chanel",
-    label: <Link href={'/'} className="ui-tabs-link">Chanel and videos</Link>,
+    label: <Link href={`/u/${id}`} className="ui-tabs-link">Chanel and videos</Link>,
   },
   {
     key: "notifications",

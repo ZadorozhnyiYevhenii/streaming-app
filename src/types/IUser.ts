@@ -8,5 +8,5 @@ export interface IUser {
   ingressId: string | undefined;
   thumbnaiURL: string;
   id: string;
-  jwt: string
+  jwt: string;
 }

@@ -1,4 +1,5 @@
 import { IUser } from "@/types/IUser";
+import { BASE_URL } from "../core";
 
 export const registerUser = async ({
   username,
@@ -6,7 +7,7 @@ export const registerUser = async ({
   password,
 }: Pick<IUser, "email" | "password" | "username">) => {
   try {
-    const response = await fetch(`http://localhost:8080/auth/register`, {
+    const response = await fetch(`${BASE_URL}/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

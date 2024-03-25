@@ -1,3 +1,5 @@
+"use client"
+
 import { DropDownOption } from "@/types/DropDownOption";
 import { Select, Space } from "antd";
 import './UIDropDown.scss';

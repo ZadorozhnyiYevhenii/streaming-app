@@ -3,6 +3,7 @@ import { ProfileSettings } from "@/components/ProfileSettings/ProfileSettings";
 import "./Profile.scss";
 
 export default function Profile() {
+
   return (
     <main className="profile">
       <AvatarLoader />
